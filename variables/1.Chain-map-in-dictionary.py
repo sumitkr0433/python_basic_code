@@ -2,16 +2,23 @@
 
 
 >>> from collections import ChainMap
+##one thing is common in both the dictionary i.e key port but having the different value
 >>> default_connection = {'host': 'localhost', 'port': 4567}
 >>> connection = {'port': 5678}
+#### Here we are doing the chain mapping 
 >>> conn = ChainMap(connection, default_connection) # map creation
+
 >>> conn['port']  # port is found in the first dictionary
 5678
+
 >>> conn['host']  # host is fetched from the second dictionary
 'localhost'
+
 >>> conn.maps  # we can see the mapping objects
 [{'port': 5678}, {'host': 'localhost', 'port': 4567}]
+
 >>> conn['host'] = 'packtpub.com'  # let's add host
+
 >>> conn.maps
 [{'port': 5678, 'host': 'packtpub.com'},
  {'host': 'localhost', 'port': 4567}]
